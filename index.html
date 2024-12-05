@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Scoreboard with Timer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scoreboard">
+        <!-- Competition logo outside the scoreboard -->
+        <img src="logos/BOTOLAPRO-2-INWI-2.png" alt="Competition Logo" class="competition-logo">
+        
+        <!-- Left Team (Team 1) -->
+        <div class="team team-left">
+            <div class="logo">
+                <img src="" alt="Team 1 Logo">
+            </div>
+            <div class="info">
+                <span class="team-name" id="team-name-left">Loading...</span>
+                <span class="score" id="score-left">0</span>
+            </div>
+        </div>
+
+        <!-- Right Team (Team 2) -->
+        <div class="team team-right">
+            <div class="logo">
+                <img src="" alt="Team 2 Logo">
+            </div>
+            <div class="info">
+                <span class="team-name" id="team-name-right">Loading...</span>
+                <span class="score" id="score-right">0</span>
+            </div>
+        </div>
+
+        <!-- Timer Rectangle -->
+        <div class="timer">
+            <span id="time">00:00</span>
+        </div>
+    </div>
+
+    <script>
+        // Ensure the base API URL matches your backend configuration
+        const API_BASE_URL = 'http://127.0.0.1:5000/api';
+    </script>
+    <script type="module" src="scoreboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #222;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    overflow: hidden;
+}
+
+/* Scoreboard container */
+.scoreboard {
+    display: flex;
+    flex-direction: column; /* Change this to column to stack elements vertically */
+    width: 600px;
+    height: 160px; /* Adjust height to accommodate stacked team rectangles and timer */
+    background-color: transparent;
+    position: relative;
+    margin: 0 auto;
+}
+
+.competition-logo {
+    background-color: #ffffff; /* Green background for timer */
+    font-size: 2.5em;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:160px;
+    width: 80px; /* Timer width */
+    position: absolute;
+    object-fit: contain;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* Team container (left and right) */
+.team {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    height:80px;
+    width: 400px; /* Width for each team rectangle */
+    font-size: 1.5rem;
+    background-color: #34003a; /* Default color */
+    position: relative; /* Relative position to allow left offset */
+    left: 80px; /* Move the team containers 80px to the right */
+    color: #fff; /* Ensure text is white */
+    z-index: 2; /* Ensure the team container is above other elements */
+    
+}
+
+.team-left {
+    background-color: #C8102E; /* Red for home team */
+}
+
+.team-right {
+    background-color: #014b1b; /* Blue for away team */
+}
+
+.team .score {
+    font-size: 2rem; /* Larger score text */
+    font-weight: bold; /* Make score bold */
+    color: #fff; /* Ensure score text is white */
+    z-index: 3; /* Ensure score text is above the container */
+}
+/* Logo styling */
+.logo img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-right: 30px;
+}
+
+/* Team name and score */
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.team-name {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: white;
+}
+
+
+/* Timer container */
+.timer {
+    background-color: #90035c; /* Green background for timer */
+    color: #ffffff; /* Purple text color */
+    font-size: 2.5em;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px; /* Timer width */
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* Add animations for timer (example: every second update) */
+@keyframes clock {
+    0% { content: "00:00"; }
+    100% { content: "01:00"; }
+}
+
+/* Teams Container */
+.teams-container {
+    display: flex;
+    justify-content: space-between; /* Align Team 1 and Team 2 side by side */
+    gap: 20px; /* Add space between the two groups */
+    margin-bottom: 20px;
+}
+
+/* Input Group */
+.input-group {
+    flex: 1; /* Allow equal space for both Team 1 and Team 2 */
+    background-color: #3b3b3b;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Label and Input Styling */
+.input-group label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #c0c0c0;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"],
+.input-group input[type="color"] {
+    margin-left: 10px;
+    padding: 8px;
+    border: none;
+    border-radius: 1px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-group input[type="file"] {
+    margin-left: 10px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #444;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.input-group input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(3); /* Increases the size of the checkbox */
+    accent-color: #00aaff; /* Optional: changes the color of the checkbox */
+    cursor: pointer; /* Changes the cursor to a pointer for better UX */
+}
+
+/* Timer Display Styling */
+.timer-display {
+    background-color: #700047;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 120px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Timer Controls Styling */
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.timer-controls button {
+    background-color: #90005c;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.timer-controls button:hover {
+    background-color: #be0077;
+}
+
+/* Save Button Styling */
+#save-btn {
+    background-color: #00aaff;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#save-btn:hover {
+    background-color: #0077cc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .teams-container {
+        flex-direction: column; /* Stack Team 1 and Team 2 vertically on smaller screens */
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Logo Preview Styling */
+.logo-preview {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.logo-preview img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Color Preview Styling */
+.color-preview {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border: 2px solid #ccc;
+    border-radius: 50%; /* Makes the preview circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    vertical-align: middle;
+}

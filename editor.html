@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="editor">
+        <h1>Scoreboard Editor</h1>
+
+        <!-- Teams Container -->
+        <div class="teams-container">
+            <!-- Team 1 Details -->
+            <div class="input-group">
+                <label>
+                    <input type="checkbox" id="update-team1-name"> Team 1 Name:
+                    <input type="text" id="team1-name" placeholder="Team 1 Name">
+                </label>
+                <br>
+
+                <label>
+                    <input type="checkbox" id="update-team1-score"> Team 1 Score:
+                    <input type="number" id="team1-score" placeholder="Score">
+                </label>
+                <br>
+
+                <label>
+                    <input type="checkbox" id="update-team1-color"> Team 1 Color:
+                    <input type="color" id="team1-color">
+                    <div class="color-preview" id="team1-color-preview"></div>
+                </label>
+                <br>
+
+                <label>
+                    <input type="checkbox" id="update-team1-logo"> Team 1 Logo:
+                    <input type="file" id="team1-logo" accept="image/*">
+                </label>
+                <br>
+                <!-- Team 1 Logo Preview -->
+                <div class="logo-preview">
+                    <img id="team1-logo-preview" src="" alt="Team 1 Logo Preview">
+                </div>
+            </div>
+
+            <!-- Team 2 Details -->
+            <div class="input-group">
+                <label>
+                    <input type="checkbox" id="update-team2-name"> Team 2 Name:
+                    <input type="text" id="team2-name" placeholder="Team 2 Name">
+                </label>
+                <br>
+
+                <label>
+                    <input type="checkbox" id="update-team2-score"> Team 2 Score:
+                    <input type="number" id="team2-score" placeholder="Score">
+                </label>
+                <br>
+
+                <label>
+                    <input type="checkbox" id="update-team2-color"> Team 2 Color:
+                    <input type="color" id="team2-color">
+                    <div class="color-preview" id="team2-color-preview"></div>
+                </label>
+                <br>
+
+                <label>
+                    <input type="checkbox" id="update-team2-logo"> Team 2 Logo:
+                    <input type="file" id="team2-logo" accept="image/*">
+                </label>
+                <br>
+                <!-- Team 2 Logo Preview -->
+                <div class="logo-preview">
+                    <img id="team2-logo-preview" src="" alt="Team 2 Logo Preview">
+                </div>
+            </div>
+        </div>
+
+        <!-- Timer Details -->
+        <div class="input-group">
+            <label>
+                <input type="checkbox" id="update-time"> Game Time:
+                <input type="text" id="game-time" placeholder="MM:SS"> <!-- Timer field set to readonly -->
+            </label>
+            <br>
+            <!-- Timer Display -->
+            <div class="timer-display" id="time-display">
+                00:00
+            </div>
+            <!-- Add controls for the timer -->
+            <div class="timer-controls">
+                <button id="start-timer">Start</button>
+                <button id="pause-timer">Pause</button>
+                <button id="reset-timer">Reset</button>
+            </div>
+        </div>
+
+        <!-- Save Button -->
+        <button id="save-btn">Save Changes</button>
+
+    </div>
+    <script type="module" src="editor.js"></script>
+
+</body>
+</html>
