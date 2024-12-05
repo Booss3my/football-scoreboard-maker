@@ -9,21 +9,26 @@ window.addEventListener('load', function () {
     });
     timer.reset()
     timer.start();
-    console.log(timer.elapsedTime)
+    
     // Load state from the backend and apply to the scoreboard
     async function loadStateFromAPI() {
         try {
             const response = await fetch(URL);
             if (!response.ok) throw new Error(`Error fetching state: ${response.status}`);
             const state = await response.json();
-
+            console.log(state)
             // Update scoreboard with values from the API
             document.getElementById('team-name-left').textContent = state.team1.name || 'Team 1';
             document.getElementById('team-name-right').textContent = state.team2.name || 'Team 2';
             document.getElementById('score-left').textContent = state.team1.score || '0';
             document.getElementById('score-right').textContent = state.team2.score || '0';
             // Initialize the timer with the game time from the state
-            timer.initialTime = timer.elapsedTime || timer.convertTimeToSeconds(state.game_time); // Default to 45 minutes
+            console.log(localStorage.getItem('elapsedTime'))
+            if (state.game_time){
+                timer.initialTime = timer.convertTimeToSeconds(state.game_time);}
+            else {
+                timer.initialTime = parseInt(localStorage.getItem('elapsedTime'))
+            }
             timer.reset()
 
             // Set team colors

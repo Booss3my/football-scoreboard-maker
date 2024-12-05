@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 body: formData,
             });
-
             if (response.ok) {
                 const result = await response.json();
                 alert('Scoreboard updated successfully!');

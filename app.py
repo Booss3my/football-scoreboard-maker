@@ -16,6 +16,7 @@ scoreboard_state = {
     "team1": {"name": "Team 1", "score": 0, "color": "#FFFFFF", "logo": None},
     "team2": {"name": "Team 2", "score": 0, "color": "#FFFFFF", "logo": None},
     "game_time": "00:00",
+    "time_retrieved": 0,  # Track how many times game_time is retrieved
 }
 
 @app.route('/uploads/<filename>')
@@ -74,7 +75,14 @@ def update_scoreboard():
     if request.form.get('update_time'):
         scoreboard_state["game_time"] = request.form.get('game_time', scoreboard_state["game_time"])
 
-    return jsonify({"message": "Scoreboard updated successfully", "state": scoreboard_state})
+    package =jsonify({"message": "Scoreboard updated successfully", "state": scoreboard_state})
+    print("retrieved ", scoreboard_state["time_retrieved"], "times")
+    if scoreboard_state["time_retrieved"] >= 1:  # Allow 5 GET requests before resetting
+        scoreboard_state["game_time"] = None
+        scoreboard_state["time_retrieved"] = 0
+    else:
+        scoreboard_state["time_retrieved"] += 1
+    return package
 
 if __name__ == '__main__':
     # Create uploads folder if it doesn't exist
