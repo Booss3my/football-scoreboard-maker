@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scoreboard Editor</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
 
@@ -102,7 +102,6 @@
         <button id="save-btn">Save Changes</button>
 
     </div>
-    <script type="module" src="editor.js"></script>
-
+    <script type="module" src="{{ url_for('static', filename='js/editor.js') }}"></script>
 </body>
 </html>

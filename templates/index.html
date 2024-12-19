@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Scoreboard with Timer</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <div class="scoreboard">
         <!-- Competition logo outside the scoreboard -->
-        <img src="logos/BOTOLAPRO-2-INWI-2.png" alt="Competition Logo" class="competition-logo">
+        <img src="{{ url_for('static', filename='logos/BOTOLAPRO-2-INWI-2.png') }}" alt="Competition Logo" class="competition-logo">
         
         <!-- Left Team (Team 1) -->
         <div class="team team-left">
@@ -44,6 +44,6 @@
         // Ensure the base API URL matches your backend configuration
         const API_BASE_URL = 'http://127.0.0.1:5000/api';
     </script>
-    <script type="module" src="scoreboard.js"></script>
+    <script type="module" src="{{ url_for('static', filename='js/scoreboard.js') }}"></script>
 </body>
 </html>
