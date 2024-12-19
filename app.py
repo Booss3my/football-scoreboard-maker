@@ -3,9 +3,9 @@ import os
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
 
-
+instance_url = os.getenv("INSTANCE_URL", "http://localhost:5000")
 app = Flask(__name__, static_folder='static', template_folder='templates')
-CORS(app, origins=["http://127.0.0.1", "http://localhost", "http://[::1]"])
+CORS(app, origins=["http://127.0.0.1", "http://localhost", "http://[::1]",instance_url])
 
 # Set a path for static files
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'uploads')

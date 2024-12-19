@@ -27,3 +27,5 @@ conda activate
 cd football-scoreboard-maker/
 pip install -r requirements.txt
 python app.py
+
+export INSTANCE_URL="your backend URL:port HERE"

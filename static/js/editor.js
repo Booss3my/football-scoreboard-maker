@@ -1,8 +1,9 @@
 import { Timer } from './timer.js'; // Import Timer class
 
 const ENDPOINTS = {
-    scoreboard: 'http://127.0.0.1:5000/api/scoreboard', // Flask backend endpoint
+    scoreboard: `${process.env.BACKEND_URL || 'http://127.0.0.1:5000'}/api/scoreboard`,
 };
+
 
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize the Timer instance with default time "00:00"
