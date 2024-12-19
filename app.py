@@ -4,7 +4,7 @@ import os
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "http://127.0.0.1:5500"}})
+CORS(app, resources={r"/api/*": {"origins": "http://0.0.0.0:5500"}})
 
 # Set a path for static files (such as logos)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'uploads')
