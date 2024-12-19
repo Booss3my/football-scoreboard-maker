@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
-CORS(app) 
+CORS(app, origins=["http://127.0.0.1", "http://localhost", "http://[::1]"])
 
 # Set a path for static files
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'uploads')
@@ -38,6 +38,7 @@ def get_scoreboard():
 
 @app.route('/api/scoreboard', methods=['POST'])
 def update_scoreboard():
+    print(request.form)
     global scoreboard_state
 
     def allowed_file(filename):
