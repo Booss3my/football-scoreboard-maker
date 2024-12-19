@@ -38,10 +38,10 @@ window.addEventListener('load', function () {
 
             // Set team logos
             if (state.team1.logo) {
-                document.querySelector('.team-left .logo img').src = `http://127.0.0.1:5000/uploads/${state.team1.logo}`;
+                document.querySelector('.team-left .logo img').src = `${process.env.INSTANCE_URL}/uploads/${state.team1.logo}`;
             }
             if (state.team2.logo) {
-                document.querySelector('.team-right .logo img').src = `http://127.0.0.1:5000/uploads/${state.team2.logo}`;
+                document.querySelector('.team-right .logo img').src = `${process.env.INSTANCE_URL}/uploads/${state.team2.logo}`;
             }
         } catch (error) {
             console.error('Failed to load state:', error);
