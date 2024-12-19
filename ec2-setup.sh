@@ -28,4 +28,4 @@ cd football-scoreboard-maker/
 pip install -r requirements.txt
 python app.py
 
-export INSTANCE_URL="your backend URL:port HERE"
+export INSTANCE_URL="your backend URL:5000 HERE"

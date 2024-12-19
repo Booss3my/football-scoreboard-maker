@@ -2,7 +2,7 @@ import { Timer } from './timer.js'; // Import Timer class
 
 window.addEventListener('load', function () {
 
-    const URL =  `${process.env.BACKEND_URL || 'http://127.0.0.1:5000'}/api/scoreboard`  // Fallback to localhost if BACKEND_URL is not defined
+    const URL =  `${process.env.INSTANCE_URL || 'http://127.0.0.1:5000'}/api/scoreboard`  // Fallback to localhost if BACKEND_URL is not defined
     
     const timerElement = document.getElementById('time');
     const timer = new Timer(timerElement, "45:00", (currentTime) => {
