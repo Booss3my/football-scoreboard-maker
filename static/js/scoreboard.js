@@ -1,8 +1,8 @@
 import { Timer } from './timer.js'; // Import Timer class
 
 window.addEventListener('load', function () {
-
-    const URL =  `${process.env.INSTANCE_URL || 'http://127.0.0.1:5000'}/api/scoreboard`  // Fallback to localhost if BACKEND_URL is not defined
+    const RURL = "http://127.0.0.1:5000"
+    const URL =  `${RURL}/api/scoreboard`  // Fallback to localhost if BACKEND_URL is not defined
     
     const timerElement = document.getElementById('time');
     const timer = new Timer(timerElement, "45:00", (currentTime) => {
@@ -38,10 +38,10 @@ window.addEventListener('load', function () {
 
             // Set team logos
             if (state.team1.logo) {
-                document.querySelector('.team-left .logo img').src = `${process.env.INSTANCE_URL}/uploads/${state.team1.logo}`;
+                document.querySelector('.team-left .logo img').src = `${RURL}/uploads/${state.team1.logo}`;
             }
             if (state.team2.logo) {
-                document.querySelector('.team-right .logo img').src = `${process.env.INSTANCE_URL}/uploads/${state.team2.logo}`;
+                document.querySelector('.team-right .logo img').src = `${RURL}/uploads/${state.team2.logo}`;
             }
         } catch (error) {
             console.error('Failed to load state:', error);

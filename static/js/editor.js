@@ -1,7 +1,7 @@
 import { Timer } from './timer.js'; // Import Timer class
 
 const ENDPOINTS = {
-    scoreboard: `${process.env.INSTANCE_URL || 'http://127.0.0.1:5000'}/api/scoreboard`,
+    scoreboard: `http://127.0.0.1:5000/api/scoreboard`,
 };
 
 
