@@ -1,7 +1,8 @@
 import { Timer } from './timer.js'; // Import Timer class
 
+const RURL = window.instanceUrl
 const ENDPOINTS = {
-    scoreboard: `http://127.0.0.1:5000/api/scoreboard`,
+    scoreboard: `${RURL}/api/scoreboard`,
 };
 
 

@@ -102,6 +102,12 @@
         <button id="save-btn">Save Changes</button>
 
     </div>
+    <script>
+        // Inject the Flask variable into a global JavaScript variable
+        window.instanceUrl = "{{ instance_url }}";
+    </script>
+    
+    <!-- External script that can now access the global `instanceUrl` -->
     <script type="module" src="{{ url_for('static', filename='js/editor.js') }}"></script>
 </body>
 </html>

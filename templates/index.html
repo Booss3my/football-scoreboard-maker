@@ -41,8 +41,7 @@
     </div>
 
     <script>
-        // Ensure the base API URL matches your backend configuration
-        const API_BASE_URL = 'http://127.0.0.1:5000/api';
+        window.instanceUrl = "{{ instance_url }}";
     </script>
     <script type="module" src="{{ url_for('static', filename='js/scoreboard.js') }}"></script>
 </body>

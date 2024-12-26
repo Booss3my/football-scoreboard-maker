@@ -1,7 +1,7 @@
 import { Timer } from './timer.js'; // Import Timer class
 
 window.addEventListener('load', function () {
-    const RURL = "http://127.0.0.1:5000"
+    const RURL = window.instanceUrl
     const URL =  `${RURL}/api/scoreboard`  // Fallback to localhost if BACKEND_URL is not defined
     
     const timerElement = document.getElementById('time');
