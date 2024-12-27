@@ -4,7 +4,6 @@ from werkzeug.utils import secure_filename
 from flask_cors import CORS
 from dotenv import load_dotenv
 
-
 load_dotenv() 
 instance_url = os.getenv("INSTANCE_URL", "http://localhost:5000")
 app = Flask(__name__, static_folder='static', template_folder='templates')
@@ -20,18 +19,17 @@ scoreboard_state = {
     "team1": {"name": "Team 1", "score": 0, "color": "#FFFFFF", "logo": None},
     "team2": {"name": "Team 2", "score": 0, "color": "#FFFFFF", "logo": None},
     "game_time": "00:00",
-    "time_retrieved": 0,
 }
 
 @app.route('/')
 def index():
     instance_url = os.getenv('INSTANCE_URL', 'http://localhost:5000')
-    return render_template('index.html',instance_url=instance_url)  # Serve the scoreboard page
+    return render_template('index.html', instance_url=instance_url)  # Serve the scoreboard page
 
 @app.route('/editor')
 def editor():
     instance_url = os.getenv('INSTANCE_URL', 'http://localhost:5000')
-    return render_template('editor.html',instance_url=instance_url)  # Serve the editor page
+    return render_template('editor.html', instance_url=instance_url)  # Serve the editor page
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
@@ -81,16 +79,7 @@ def update_scoreboard():
     if request.form.get('update_time'):
         scoreboard_state["game_time"] = request.form.get('game_time', scoreboard_state["game_time"])
 
-    package = jsonify({"message": "Scoreboard updated successfully", "state": scoreboard_state})
-    
-    # Reset game time after retrieval
-    if scoreboard_state["time_retrieved"] >= 1:
-        scoreboard_state["game_time"] = None
-        scoreboard_state["time_retrieved"] = 0
-    else:
-        scoreboard_state["time_retrieved"] += 1
-
-    return package
+    return jsonify({"message": "Scoreboard updated successfully", "state": scoreboard_state})
 
 if __name__ == '__main__':
     if not os.path.exists(app.config['UPLOAD_FOLDER']):
