@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv() 
 instance_url = os.getenv("INSTANCE_URL", "http://localhost:5000")
 app = Flask(__name__, static_folder='static', template_folder='templates')
-CORS(app, origins=["http://127.0.0.1", "http://localhost", "http://[::1]",instance_url])
+CORS(app, origins=["*"])
 
 # Set a path for static files
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'uploads')
